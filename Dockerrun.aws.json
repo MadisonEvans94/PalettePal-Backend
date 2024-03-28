@@ -1,0 +1,50 @@
+{
+	"AWSEBDockerrunVersion": "2",
+	"volumes": [
+		{
+			"name": "static-volume",
+			"host": {
+				"sourcePath": "/var/app/current/static"
+			}
+		}
+	],
+	"containerDefinitions": [
+		{
+			"name": "django",
+			"image": "663524913446.dkr.ecr.us-east-2.amazonaws.com/palette-pal-backend-image:django-app",
+			"essential": true,
+			"memory": 256,
+			"mountPoints": [
+				{
+					"sourceVolume": "static-volume",
+					"containerPath": "/app/static"
+				}
+			],
+			"portMappings": [
+				{
+					"hostPort": 8000,
+					"containerPort": 8000
+				}
+			]
+		},
+		{
+			"name": "nginx",
+			"image": "663524913446.dkr.ecr.us-east-2.amazonaws.com/palette-pal-nginx-image:nginx",
+			"essential": true,
+			"memory": 128,
+			"links": ["django"],
+			"portMappings": [
+				{
+					"hostPort": 80,
+					"containerPort": 80
+				}
+			],
+			"mountPoints": [
+				{
+					"sourceVolume": "static-volume",
+					"containerPath": "/usr/share/nginx/html/static"
+				}
+			]
+		}
+	]
+}

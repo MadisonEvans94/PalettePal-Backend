@@ -1,0 +1,17 @@
+db.sqlite3
+__pycache__
+venv/
+ppenv/
+assets
+key.pem
+cert.pem
+/AWS/
+/data/
+docker-images/
+static/
+prod/
+project.zip
+dockerrun.zip
+app.zip
+/app/
+/docker-images/
