@@ -11,3 +11,5 @@ project.zip
 dockerrun.zip
 app.zip
 /docker-images/
+/prod/
+proxy/
