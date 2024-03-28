@@ -13,3 +13,4 @@ app.zip
 /docker-images/
 /prod/
 proxy/
+Dockerfile
