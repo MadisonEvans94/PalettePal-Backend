@@ -1,0 +1,21 @@
+
+# LOG IN
+POST http://127.0.0.1:8000/auth/login/
+Content-Type: application/json
+
+{"username": "madisonnn", "password": "Pass1234!", "email": "m.corbinevans@gmail.com"}
+
+###
+
+# SIGN UP 
+POST http://127.0.0.1:8000/auth/sign-up/
+Content-Type: application/json
+
+{"username": "Bill", "password": "Pass1234!", "email": "m.corbinevans@gmail.com"}
+
+###
+
+# TEST SESSION
+GET http://127.0.0.1:8000/auth/test_token/
+Content-Type: application/json
+Authorization: Token 55b268bb890bdf8a942cc00f037d377cb8bc2fe9
